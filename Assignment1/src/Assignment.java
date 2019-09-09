@@ -14,6 +14,12 @@ public static void main(String[] args)
 
     int[] randam;
     Scanner obj = new Scanner(System.in);
+    System.out.println("welcome as Admin");
+    System.out.println("Enter password");
+    int a;
+    a=obj.nextInt();
+    if(a==123)
+    {
     do {
 
         System.out.println("enter number between 1 to 6");
@@ -53,7 +59,7 @@ public static void main(String[] args)
             Customer customer=list.get(i);
             ArrayList<Car> listOfCars= customer.getCarList();
             Car car=null;
-            System.out.println("Enter CarType( press Toyota: 1, Maruti: 2,hyundai: 3 )");
+            System.out.println("Enter CarType( press Maruti: 1, Hyundai: 2,Toyota: 3 )");
             int carType=obj1.nextInt();
             switch (carType)
                 
@@ -179,9 +185,14 @@ public static void main(String[] args)
                 
               }
                 } while (num != 0);
+    } 
+      else
+    {
+        System.out.println("Password is incorrect");
+    }
+    }
                 }
-                }
-                class Customer implements Comparable< Customer>
+            class Customer implements Comparable< Customer>
                 {
                 public int id;
                 public String name;
@@ -227,7 +238,7 @@ public static void main(String[] args)
                 }
                 }
 
-                abstract class Car 
+            abstract class Car 
                 {
                 public int carId;
                 public String carModel;
@@ -247,7 +258,7 @@ public static void main(String[] args)
                 }
                 
 
-                class SearchById {
+            class SearchById {
                 public int cusId;
                 public SearchById() {
                 System.out.println("Enter Id Of Customer");
@@ -259,7 +270,7 @@ public static void main(String[] args)
                 }
                 }
                 
-                class RandomNumber
+            class RandomNumber
                 {
                 public int num1;
                 public int num2;
@@ -285,7 +296,7 @@ public static void main(String[] args)
                 }
                 }
 
-                class Hyundai extends Car {
+            class Hyundai extends Car {
                 public Hyundai(final int carId, final String carModel, final double carPrice){
                 this.carId=carId;
                 this.carModel=carModel;
@@ -298,7 +309,7 @@ public static void main(String[] args)
                 }
                 }
                 
-                class Maruti extends Car 
+            class Maruti extends Car 
                 {
                 public Maruti(final int carId, final String carModel, final double carPrice){
                 this.carId=carId;
@@ -312,7 +323,7 @@ public static void main(String[] args)
                 }
             }
                 
-                class Toyota extends Car
+            class Toyota extends Car
                 {
                 public Toyota(final int carId, final String carModel, final double carPrice){
                 this.carId=carId;
