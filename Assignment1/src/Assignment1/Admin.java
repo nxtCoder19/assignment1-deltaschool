@@ -1,10 +1,22 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Assignment1;
+
+
 import static java.lang.System.exit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Assignment {
+/**
+ *
+ * @author piyush
+ */
+public class Admin {
 
 public static void main(String[] args) 
 {
@@ -18,7 +30,8 @@ public static void main(String[] args)
     System.out.println("Enter password");
     int a;
     a=obj.nextInt();
-    if(a==123)
+    
+    if(a==111)
     {
     do {
 
@@ -91,11 +104,12 @@ public static void main(String[] args)
                     carId=obj1.nextInt();
                     carModel=obj2.next();
                     carPrice=obj1.nextDouble();
-                    car=new Toyota(carId,carModel,carPrice);listOfCars.add(car);
+                    car=new Toyota(carId,carModel,carPrice);
+                    listOfCars.add(car);
                     customer.setCarList(listOfCars);
                     break;
-                    default:
-                        
+                    
+                    default:    
                         
                     System.out.println("Car Type Does not Exist");
                     break;
@@ -154,7 +168,7 @@ public static void main(String[] args)
                 int index = random.nextInt(list.size());
                 randam[i] = list.get(index).getId();
                 }
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < list.size(); i++)
                 {
                 if (randam[i] == r.num1) {
                 flag++;
@@ -171,7 +185,8 @@ public static void main(String[] args)
                 System.out.println("Id : " + randam[i] + " price Winner");
                 break;  
                 }
-                } if(flag==0)System.out.println("Better Luck For next time :)");
+                }
+                if(flag==0)System.out.println("There are no price winner :)");
                 break;
                 
         
@@ -186,79 +201,21 @@ public static void main(String[] args)
               }
                 } while (num != 0);
     } 
-      else
+     else
     {
         System.out.println("Password is incorrect");
     }
+    
+    
     }
                 }
-            class Customer implements Comparable< Customer>
-                {
-                public int id;
-                public String name;
-                public ArrayList<Car> carList;
-                public Customer() {Scanner obj1 = new Scanner(System.in);
-                Scanner obj2 = new Scanner(System.in);
-                System.out.println("Enter ID, Name");
-                id = obj1.nextInt();
-                name = obj2.next();
-                this.carList = new ArrayList<Car>();
-                }
-                
-                public int getId() 
-                {
-                return id;
-                
-                }
-                public String getName() 
-                {
-                return name;
-                }
-                public ArrayList<Car> getCarList() 
-                {
-                return carList;
-                }
-                public void setCarList(ArrayList<Car> CarList)
-                {
-                this.carList = CarList;
-                }
-                public int compareTo(Customer o)
-                {
-                
-                int compareInt = this.name.compareTo(o.name);
-                if (compareInt < 0) 
-                {
-                return -1;
-                }
-                if (compareInt > 0)
-                {
-                return 1;
-                }
-                return 0;
-                }
-                }
 
-            abstract class Car 
-                {
-                public int carId;
-                public String carModel;
-                double carPrice;
-                public int getCarId() 
-                {
-                return carId;
-                }
-                public double getCarPrice()
-                {
-                return carPrice;}
-                public String getCarModel() 
-                {
-                return carModel;
-                }
-                abstract double getResalePrice();
-                }
-                
+           
 
-            class SearchById {
+
+
+
+                class SearchById {
                 public int cusId;
                 public SearchById() {
                 System.out.println("Enter Id Of Customer");
@@ -296,41 +253,4 @@ public static void main(String[] args)
                 }
                 }
 
-            class Hyundai extends Car {
-                public Hyundai(final int carId, final String carModel, final double carPrice){
-                this.carId=carId;
-                this.carModel=carModel;
-                this.carPrice=carPrice;
-                }
-                @Override
-                double getResalePrice() 
-                {
-                return carPrice*0.60;
-                }
-                }
                 
-            class Maruti extends Car 
-                {
-                public Maruti(final int carId, final String carModel, final double carPrice){
-                this.carId=carId;
-                this.carModel=carModel;
-                this.carPrice=carPrice;
-                }
-                @Override
-                double getResalePrice() 
-                {
-                return carPrice*0.80;
-                }
-            }
-                
-            class Toyota extends Car
-                {
-                public Toyota(final int carId, final String carModel, final double carPrice){
-                this.carId=carId;
-                this.carModel=carModel;
-                this.carPrice=carPrice;
-                }
-                @Override
-                double getResalePrice() {return carPrice*0.80;
-                }
-            }
